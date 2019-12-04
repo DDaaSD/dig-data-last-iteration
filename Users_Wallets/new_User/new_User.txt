@@ -1,0 +1,1 @@
+{"userName":"new_User","userId":"new_User-1","wallets":[{"name":"US","amount":50},{"name":"UA","amount":50},{"name":"RUB","amount":5012}]}

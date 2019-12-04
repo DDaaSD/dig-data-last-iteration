@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <style>
+    #userInformation-panel {
+      border: solid black 2px;
+      padding: 10px;
+    }
+
+    .list-group-item:hover {
+      background: #d8d2d2;
+    }
+
+    #user_wallet_container {
+      display: contents;
+    }
+
+    .active {
+      background: #d8d2d2;
+      z-index: -1;
+    }
+
+    #user_name {
+      padding: 10px;
+      font-size: 20px;
+    }
+
+    .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  z-index: 1100 !important;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  height: 200px;
+  z-index: 1100 !important;
+}
+  </style>
+</head>
+
+<body onload="SomeFunction();">
+
+  <div id="userInformation">
+    <label id="user_name"></label>
+    <div id="user_wallet_container">
+      <label id='wallet-label-us' onclick="getAllClient('wallet-label-us')" class='list-group-item active'></label>
+      <label id='wallet-label-ua' onclick="getAllClient('wallet-label-ua')" class='list-group-item'></label>
+      <label id='wallet-label-rub' onclick="getAllClient('wallet-label-rub')" class='list-group-item'></label>
+    </div>
+    <div id="another_user">
+
+ 
+  </div>
+
+</div>
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h1>send amount</h1>
+    <div class="info-sender-receiver">
+      <label id='sender-Name'></label>
+      <label id='receiver-Name'></label> 
+    </div>             
+    <input type="text" placeholder="Amount amount" name="amount" value="" id = "amountSentId" required>   
+    <button type="submit" class="sendAmount" onclick="saveTransaction()">Send</button> 
+  </div>
+</div>
+
+  <script src="./renderer.js"></script>
+  <script>
+    // Add active class to the current button (highlight it)
+    var header = document.getElementById("user_wallet_container");
+    var btns = header.getElementsByClassName("list-group-item");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function () {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+      });
+    }    
+    var span = document.getElementsByClassName("close")[0];
+    var modal = document.getElementById("myModal");
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+{"userName":"funtik_kuntik","userId":"funtik_kuntik-1","wallets":[{"name":"US","amount":0},{"name":"UA","amount":2},{"name":"RUB","amount":2}]}
